@@ -17,3 +17,4 @@ jobs:
       - run: python news.py
         env:
           TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
