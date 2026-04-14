@@ -56,9 +56,9 @@ def translate_and_summarize(articles):
     Claude API로 기사 번역 및 요약
     수집한 기사들을 Claude에게 보내서 한국어로 번역 + 요약해달라고 요청해요.
     """
-    # 기사 목록을 텍스트로 변환해서 Claude에게 전달할 프롬프트 만들기
+    # 기사 목록을 텍스트로 변환 — 링크도 함께 전달
     text = "\n".join([
-        f"{i+1}. 제목: {a['title']}\n내용: {a['summary']}"
+        f"{i+1}. 제목: {a['title']}\n링크: {a['link']}\n내용: {a['summary']}"
         for i, a in enumerate(articles)
     ])
 
@@ -76,8 +76,8 @@ def translate_and_summarize(articles):
             "messages": [{
                 "role": "user",
                 "content": f"""아래 AI 뉴스 기사들을 한국어로 번역하고 각각 2~3문장으로 요약해줘.
-출력 형식: 번호. [한국어 제목] - 요약 내용
-다른 말 없이 번호와 내용만 출력해.
+출력 형식: 번호. [한국어 제목](링크) - 요약 내용
+마크다운 링크 형식을 꼭 지켜줘. 다른 말 없이 번호와 내용만 출력해.
 
 {text}"""
             }]
