@@ -9,7 +9,7 @@ RSS_FEEDS = [
     "https://www.technologyreview.com/feed/",
 ]
 
-TEAMS_WEBHOOK = "YOUR_TEAMS_WEBHOOK_URL"
+TEAMS_WEBHOOK = "https://defaultf9619945fe764aaaac97c8ae5d21f1.1b.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/5706e373f72147afab217aa81adced2d/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=liCIkLkEsnOgJ-e2YM48eIL7mXRy3ntOBQefMblUGSs"
 
 def get_news(limit=10):
     articles = []
